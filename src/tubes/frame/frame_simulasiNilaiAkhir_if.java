@@ -210,11 +210,14 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelJudul.setBackground(new java.awt.Color(102, 102, 102));
         panelJudul.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("FORM SIMULASI NILAI AKHIR ");
 
         javax.swing.GroupLayout panelJudulLayout = new javax.swing.GroupLayout(panelJudul);
@@ -234,17 +237,23 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 490, 60));
+        jPanel1.add(panelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 490, 60));
 
+        panelIsi.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelIsi2.setBackground(new java.awt.Color(102, 102, 102));
         panelIsi2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Kode M.K");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Presentase Absen");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nama Mata Kuliah");
 
         tabel_mahasiswa_if.setModel(new javax.swing.table.DefaultTableModel(
@@ -265,6 +274,8 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabel_mahasiswa_if);
 
+        btn_tambah_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_tambah_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_tambah_if.setText("Tambah");
         btn_tambah_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,6 +283,8 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
             }
         });
 
+        btn_ubah_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_ubah_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_ubah_if.setText("Ubah");
         btn_ubah_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,6 +292,8 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
             }
         });
 
+        btn_hapus_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_hapus_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_hapus_if.setText("Hapus");
         btn_hapus_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,6 +301,8 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
             }
         });
 
+        btn_simpan_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_simpan_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan_if.setText("Simpan");
         btn_simpan_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,8 +310,12 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
             }
         });
 
+        btn_batal_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_batal_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_batal_if.setText("Batal");
 
+        btn_keluar_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_keluar_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_keluar_if.setText("Keluar");
 
         cmb_mata_kuliah_if.addActionListener(new java.awt.event.ActionListener() {
@@ -304,45 +325,59 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("%");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Presentase Tugas");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Presentase UTS");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Presentase UAS");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Kehadiran");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Tugas 1");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Tugas 2");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Tugas 3");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("%");
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("%");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("%");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("UTS");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("UAS");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Pertemuan");
 
         javax.swing.GroupLayout panelIsi2Layout = new javax.swing.GroupLayout(panelIsi2);
@@ -405,7 +440,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                                         .addGap(45, 45, 45))))
                             .addGroup(panelIsi2Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(0, 582, Short.MAX_VALUE))))
+                                .addGap(0, 562, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsi2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2))
@@ -484,7 +519,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                     .addComponent(txt_uas_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 35, Short.MAX_VALUE)
                 .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_tambah_if)
                     .addComponent(btn_ubah_if)
@@ -492,38 +527,37 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                     .addComponent(btn_simpan_if)
                     .addComponent(btn_batal_if)
                     .addComponent(btn_keluar_if))
-                .addGap(94, 94, 94))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelIsi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelIsiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelIsi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(panelIsi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(46, 46, 46))
         );
 
-        jPanel1.add(panelIsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 730, 560));
+        jPanel1.add(panelIsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 730, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

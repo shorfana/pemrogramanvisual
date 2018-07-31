@@ -329,8 +329,6 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelJudul = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         panelIsi = new javax.swing.JPanel();
         panelCaridata = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -370,37 +368,24 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         txt_uas_if = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         txt_angkatan_if = new com.toedter.calendar.JYearChooser();
+        panelJudul = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelJudul.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("FORM NILAI MAHASISWA");
+        panelIsi.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout panelJudulLayout = new javax.swing.GroupLayout(panelJudul);
-        panelJudul.setLayout(panelJudulLayout);
-        panelJudulLayout.setHorizontalGroup(
-            panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelJudulLayout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(120, 120, 120))
-        );
-        panelJudulLayout.setVerticalGroup(
-            panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelJudulLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
+        panelCaridata.setBackground(new java.awt.Color(102, 102, 102));
         panelCaridata.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Pencarian Data Nilai Mahasiswa");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Masukan Data");
 
         txt_cari_if.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -449,18 +434,23 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                 .addGap(0, 14, Short.MAX_VALUE))
         );
 
+        panelIsi2.setBackground(new java.awt.Color(102, 102, 102));
         panelIsi2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nama");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("NIM");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Kehadiran");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nama Mata Kuliah");
 
         tabel_nilai_if.setModel(new javax.swing.table.DefaultTableModel(
@@ -481,6 +471,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabel_nilai_if);
 
+        btn_tambah_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_tambah_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_tambah_if.setText("Tambah");
         btn_tambah_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,6 +480,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
             }
         });
 
+        btn_ubah_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_ubah_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_ubah_if.setText("Ubah");
         btn_ubah_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -495,6 +489,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
             }
         });
 
+        btn_hapus_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_hapus_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_hapus_if.setText("Hapus");
         btn_hapus_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -502,6 +498,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
             }
         });
 
+        btn_simpan_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_simpan_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan_if.setText("Simpan");
         btn_simpan_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,6 +507,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
             }
         });
 
+        btn_batal_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_batal_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_batal_if.setText("Batal");
         btn_batal_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,6 +516,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
             }
         });
 
+        btn_keluar_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_keluar_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_keluar_if.setText("Keluar");
         btn_keluar_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -538,27 +540,35 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Pertemuan");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Tugas 1");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Tugas 2");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Tugas 3");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Kode MK");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("UTS");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("UAS");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Angkatan");
 
         javax.swing.GroupLayout panelIsi2Layout = new javax.swing.GroupLayout(panelIsi2);
@@ -705,11 +715,35 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(13, 13, 13)
                 .addComponent(panelCaridata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelIsi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelJudul.setBackground(new java.awt.Color(102, 102, 102));
+        panelJudul.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("FORM NILAI MAHASISWA");
+
+        javax.swing.GroupLayout panelJudulLayout = new javax.swing.GroupLayout(panelJudul);
+        panelJudul.setLayout(panelJudulLayout);
+        panelJudulLayout.setHorizontalGroup(
+            panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelJudulLayout.createSequentialGroup()
+                .addGap(285, 285, 285)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelJudulLayout.setVerticalGroup(
+            panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelJudulLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -717,14 +751,15 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelJudul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(panelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

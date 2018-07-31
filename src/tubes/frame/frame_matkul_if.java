@@ -158,38 +158,47 @@ public class frame_matkul_if extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelJudul.setBackground(new java.awt.Color(102, 102, 102));
         panelJudul.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("FORM MATA KULIAH");
 
         javax.swing.GroupLayout panelJudulLayout = new javax.swing.GroupLayout(panelJudul);
         panelJudul.setLayout(panelJudulLayout);
         panelJudulLayout.setHorizontalGroup(
             panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelJudulLayout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
+            .addGroup(panelJudulLayout.createSequentialGroup()
+                .addContainerGap(259, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(166, 166, 166))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
         panelJudulLayout.setVerticalGroup(
             panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelJudulLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 490, 60));
+        jPanel1.add(panelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 710, 50));
 
+        panelIsi.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelCaridata.setBackground(new java.awt.Color(102, 102, 102));
         panelCaridata.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Pencarian Data Mata Kuliah");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Masukan Mata Kuliah");
 
         txt_cari_mk_if.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -231,12 +240,15 @@ public class frame_matkul_if extends javax.swing.JFrame {
                 .addGap(0, 17, Short.MAX_VALUE))
         );
 
+        panelIsi2.setBackground(new java.awt.Color(102, 102, 102));
         panelIsi2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nomor M.K");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nama M.K");
 
         tabel_matakuliah_if.setModel(new javax.swing.table.DefaultTableModel(
@@ -257,6 +269,8 @@ public class frame_matkul_if extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabel_matakuliah_if);
 
+        btn_tambah_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_tambah_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_tambah_if.setText("Tambah");
         btn_tambah_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,6 +278,8 @@ public class frame_matkul_if extends javax.swing.JFrame {
             }
         });
 
+        btn_ubah_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_ubah_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_ubah_if.setText("Ubah");
         btn_ubah_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,6 +287,8 @@ public class frame_matkul_if extends javax.swing.JFrame {
             }
         });
 
+        btn_hapus_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_hapus_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_hapus_if.setText("Hapus");
         btn_hapus_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +296,8 @@ public class frame_matkul_if extends javax.swing.JFrame {
             }
         });
 
+        btn_simpan_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_simpan_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan_if.setText("Simpan");
         btn_simpan_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,6 +305,8 @@ public class frame_matkul_if extends javax.swing.JFrame {
             }
         });
 
+        btn_batal_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_batal_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_batal_if.setText("Batal");
         btn_batal_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,6 +314,8 @@ public class frame_matkul_if extends javax.swing.JFrame {
             }
         });
 
+        btn_keluar_if.setBackground(new java.awt.Color(0, 0, 0));
+        btn_keluar_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_keluar_if.setText("Keluar");
         btn_keluar_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,14 +393,13 @@ public class frame_matkul_if extends javax.swing.JFrame {
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panelCaridata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelIsi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelIsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 730, 430));
+        jPanel1.add(panelIsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 730, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
