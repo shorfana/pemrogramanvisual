@@ -69,17 +69,18 @@ public class frame_daftar_if extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, 40));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, 50));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, 40));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, 50));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Confirm Password");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, 40));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, 50));
 
         txt_username_if.setBackground(new java.awt.Color(102, 102, 102));
+        txt_username_if.setForeground(new java.awt.Color(255, 255, 255));
         txt_username_if.setBorder(null);
         jPanel3.add(txt_username_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 138, 20));
 
@@ -101,10 +102,12 @@ public class frame_daftar_if extends javax.swing.JFrame {
         jPanel3.add(lbl_punya_akun_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
 
         j_password_if.setBackground(new java.awt.Color(102, 102, 102));
+        j_password_if.setForeground(new java.awt.Color(255, 255, 255));
         j_password_if.setBorder(null);
         jPanel3.add(j_password_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 138, 20));
 
         j_confirm_ppass_if.setBackground(new java.awt.Color(102, 102, 102));
+        j_confirm_ppass_if.setForeground(new java.awt.Color(255, 255, 255));
         j_confirm_ppass_if.setBorder(null);
         jPanel3.add(j_confirm_ppass_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 110, 138, 20));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 140, 10));
@@ -200,8 +203,6 @@ public class frame_daftar_if extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Gagal Mendaftar");
             }            
         }
-        
-
     }//GEN-LAST:event_btn_daftar_ifActionPerformed
 
     /**

@@ -75,10 +75,10 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                 data[14] = res.getString("index");
                 data[15] = res.getString("ket");
                 // ambil tahun angktan
-                String tanggal=res.getString("angkatan");
-                String[] pecah=tanggal.split("-");
-                String tahun=pecah[0];
-                data[16] = tahun ;
+                String tanggal = res.getString("angkatan");
+                String[] pecah = tanggal.split("-");
+                String tahun = pecah[0];
+                data[16] = tahun;
 
                 tableModel.addRow(data);
             }
@@ -95,7 +95,6 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     }
 
     public void loadNamaMhs() {
-        String stat = "";
         try {
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database, user, pass);
@@ -120,7 +119,6 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     }
 
     public void loadMk() {
-        String stat = "";
         try {
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(database, user, pass);
@@ -262,7 +260,6 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     int row = -1;
 
     public void tampil_field() {
-        row = -1;
         row = tabel_nilai_if.getSelectedRow();
         cmb_namaMhs.getModel().setSelectedItem(tableModel.getValueAt(row, 1));
         cmb_NamaMk.getModel().setSelectedItem(tableModel.getValueAt(row, 2));
@@ -273,15 +270,14 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         txt_uts_if.setText(tableModel.getValueAt(row, 7).toString());
         txt_uas_if.setText(tableModel.getValueAt(row, 8).toString());
         String angkatan = tableModel.getValueAt(row, 16).toString();
-        txt_angkatan_if.setValue(Integer.valueOf(angkatan)); 
+        txt_angkatan_if.setValue(Integer.valueOf(angkatan));
         btn_simpan_if.setEnabled(false);
         btn_ubah_if.setEnabled(true);
         btn_hapus_if.setEnabled(true);
         btn_batal_if.setEnabled(true);
+        btn_tambah_if.setEnabled(false);
         aktif_teks();
     }
-    
-    
 
     static double nilaiAbsen(double kehadiran) {
         double nilaiAbsen = (((kehadiran / 14) * 100 * 5) / 100);
@@ -807,6 +803,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         btn_hapus_if.setEnabled(false);
         btn_keluar_if.setEnabled(false);
         btn_batal_if.setEnabled(true);
+        btn_tambah_if.setEnabled(false);
+
         aktif_teks();
     }//GEN-LAST:event_btn_tambah_ifActionPerformed
 
@@ -821,7 +819,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         String txtTugas3 = txt_tgs3_if.getText();
         String txtUts = txt_uts_if.getText();
         String txtUas = txt_uas_if.getText();
-       String angkatan = String.valueOf(txt_angkatan_if.getYear());
+        String angkatan = String.valueOf(txt_angkatan_if.getYear());
 
         //validasi
         if ((nim.isEmpty())) {
@@ -852,61 +850,68 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Maksimal Kehadiran adalah 14!!!", "WARNING", JOptionPane.WARNING_MESSAGE);
             txt_kodeMk_if.requestFocus();
         } else {
+            int pilihan = JOptionPane.showOptionDialog(this, "Data yakin sudah benar?",
+                    "simpan", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (pilihan == JOptionPane.YES_OPTION) {
 
-            double kehadiran = Double.valueOf(txt_kehadiran_if.getText());
-            double tugas_1 = Double.valueOf(txt_tgs1_if.getText());
-            double tugas_2 = Double.valueOf(txt_tgs2_if.getText());
-            double tugas_3 = Double.valueOf(txt_tgs3_if.getText());
-            double uts = Double.valueOf(txt_uts_if.getText());
-            double uas = Double.valueOf(txt_uas_if.getText());
-            double nilaiAbsen = nilaiAbsen(kehadiran);
-            double nilaiTugas = nilaiTugas(tugas_1, tugas_2, tugas_3);
-            double nilaiUts = nilaiUts(uts);
-            double nilaiUas = nilaiUas(uas);
-            double nilaiAkhir = nilaiAbsen + nilaiTugas + nilaiUts + nilaiUas;
-            String index = index(nilaiAkhir);
-            String keterangan = "";
-            if (kehadiran < 11) {
-                keterangan = "TIDAK LULUS";
-            } else if ((index == "A" || index == "B" || index == "C") && kehadiran >= 11) {
-                keterangan = "LULUS";
-            } else if ((index == "D" || index == "E")) {
-                keterangan = "TIDAK LULUS";
-            }
+                double kehadiran = Double.valueOf(txt_kehadiran_if.getText());
+                double tugas_1 = Double.valueOf(txt_tgs1_if.getText());
+                double tugas_2 = Double.valueOf(txt_tgs2_if.getText());
+                double tugas_3 = Double.valueOf(txt_tgs3_if.getText());
+                double uts = Double.valueOf(txt_uts_if.getText());
+                double uas = Double.valueOf(txt_uas_if.getText());
+                double nilaiAbsen = nilaiAbsen(kehadiran);
+                double nilaiTugas = nilaiTugas(tugas_1, tugas_2, tugas_3);
+                double nilaiUts = nilaiUts(uts);
+                double nilaiUas = nilaiUas(uas);
+                double nilaiAkhir = nilaiAbsen + nilaiTugas + nilaiUts + nilaiUas;
+                String index = index(nilaiAkhir);
+                String keterangan = "";
+                if (kehadiran < 11) {
+                    keterangan = "TIDAK LULUS";
+                } else if ((index == "A" || index == "B" || index == "C") && kehadiran >= 11) {
+                    keterangan = "LULUS";
+                } else if ((index == "D" || index == "E")) {
+                    keterangan = "TIDAK LULUS";
+                }
 
-            try {
-                Class.forName(driver);
-                Connection kon = DriverManager.getConnection(
-                        database,
-                        user,
-                        pass);
-                Statement stt = kon.createStatement();
-                String SQL = "INSERT INTO `t_nilai`(`nim`, `kd_mk`, "
-                        + "`absensi`, `tgs1`, `tgs2`, `tgs3`, `uts`, `uas`, `"
-                        + "nilai_absen`, `nilai_tugas`, `nilai_uts`, `nilai_uas`,"
-                        + " `nilai`, `index`, `ket`,`angkatan`) VALUES ('" + nim
-                        + "','" + kd_mk + "', '" + kehadiran + "' , "
-                        + "'" + tugas_1 + "','" + tugas_2 + "','" + tugas_3 + "','"
-                        + uts + "','" + uas + "','" + nilaiAbsen + "','" + nilaiTugas
-                        + "','" + nilaiUts + "','" + nilaiUas + "','" + nilaiAkhir
-                        + "','" + index + "','" + keterangan + "',"+angkatan+")";
+                try {
+                    Class.forName(driver);
+                    Connection kon = DriverManager.getConnection(
+                            database,
+                            user,
+                            pass);
+                    Statement stt = kon.createStatement();
+                    String SQL = "INSERT INTO `t_nilai`(`nim`, `kd_mk`, "
+                            + "`absensi`, `tgs1`, `tgs2`, `tgs3`, `uts`, `uas`, `"
+                            + "nilai_absen`, `nilai_tugas`, `nilai_uts`, `nilai_uas`,"
+                            + " `nilai`, `index`, `ket`,`angkatan`) VALUES ('" + nim
+                            + "','" + kd_mk + "', '" + kehadiran + "' , "
+                            + "'" + tugas_1 + "','" + tugas_2 + "','" + tugas_3 + "','"
+                            + uts + "','" + uas + "','" + nilaiAbsen + "','" + nilaiTugas
+                            + "','" + nilaiUts + "','" + nilaiUas + "','" + nilaiAkhir
+                            + "','" + index + "','" + keterangan + "'," + angkatan + ")";
 
-                stt.executeUpdate(SQL);
+                    stt.executeUpdate(SQL);
 
-                tableModel.setRowCount(0);
-                settableload();
-                stt.close();
-                kon.close();
-                membersihkan_teks();
-                btn_simpan_if.setEnabled(false);
-                btn_keluar_if.setEnabled(true);
-                nonaktifkan_teks();
+                    tableModel.setRowCount(0);
+                    settableload();
+                    stt.close();
+                    kon.close();
+                    membersihkan_teks();
+                    btn_simpan_if.setEnabled(false);
+                    btn_keluar_if.setEnabled(true);
+                    btn_tambah_if.setEnabled(true);
+                    nonaktifkan_teks();
+                    
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Di Simpan","Berhasil", JOptionPane.INFORMATION_MESSAGE);
 
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null,
-                        ex.getMessage(), "Error",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,
+                            ex.getMessage(), "Error",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
             }
         }
     }//GEN-LAST:event_btn_simpan_ifActionPerformed
@@ -924,9 +929,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         String angkatan = String.valueOf(txt_angkatan_if.getYear());
 
         //validasi
-        if (row == -1) {
-            JOptionPane.showMessageDialog(null, "Belum Memilih Row !!!", "WARNING", JOptionPane.WARNING_MESSAGE);
-        } else if ((nim.isEmpty())) {
+        if ((nim.isEmpty())) {
             JOptionPane.showMessageDialog(null, "NIM Tidak Boleh Kosong!!!", "WARNING", JOptionPane.WARNING_MESSAGE);
             txt_nim_if.requestFocus();
         } else if (kd_mk.isEmpty()) {
@@ -1013,10 +1016,10 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                     btn_simpan_if.setEnabled(false);
                     btn_ubah_if.setEnabled(false);
                     btn_hapus_if.setEnabled(false);
+                    btn_tambah_if.setEnabled(true);
                     nonaktifkan_teks();
-
-                    //unselected row
-                    row = -1;
+                    
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Di Ubah","Berhasil", JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null,
@@ -1030,38 +1033,35 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
 
     private void btn_hapus_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapus_ifActionPerformed
         // TODO add your handling code here:
-        //validasi belum meilih row
-        if (row == -1) {
-            JOptionPane.showMessageDialog(null, "Belum Memilih Row !!!", "WARNING", JOptionPane.WARNING_MESSAGE);
-        } else {
-            int pilihan = JOptionPane.showOptionDialog(this, "Yakin ingin dihapus?",
-                    "Hapus", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
-            if (pilihan == JOptionPane.YES_OPTION) {
-                try {
-                    Class.forName(driver);
-                    Connection kon = DriverManager.getConnection(
-                            database,
-                            user,
-                            pass);
-                    Statement stt = kon.createStatement();
-                    String SQL = "Delete From t_nilai where kd_nilai='"
-                            + tableModel.getValueAt(row, 0).toString() + "'";
 
-                    stt.executeUpdate(SQL);
-                    tableModel.setRowCount(0);
-                    settableload();;
-                    stt.close();
-                    kon.close();
-                    membersihkan_teks();
-                    btn_simpan_if.setEnabled(false);
-                    btn_ubah_if.setEnabled(false);
-                    btn_hapus_if.setEnabled(false);
-                    nonaktifkan_teks();
-                    //unselected row
-                    row = -1;
-                } catch (Exception ex) {
-                    System.err.println(ex.getMessage());
-                }
+        int pilihan = JOptionPane.showOptionDialog(this, "Yakin ingin dihapus?",
+                "Hapus", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if (pilihan == JOptionPane.YES_OPTION) {
+            try {
+                Class.forName(driver);
+                Connection kon = DriverManager.getConnection(
+                        database,
+                        user,
+                        pass);
+                Statement stt = kon.createStatement();
+                String SQL = "Delete From t_nilai where kd_nilai='"
+                        + tableModel.getValueAt(row, 0).toString() + "'";
+
+                stt.executeUpdate(SQL);
+                tableModel.setRowCount(0);
+                settableload();;
+                stt.close();
+                kon.close();
+                membersihkan_teks();
+                btn_simpan_if.setEnabled(false);
+                btn_ubah_if.setEnabled(false);
+                btn_hapus_if.setEnabled(false);
+                btn_tambah_if.setEnabled(true);
+                nonaktifkan_teks();
+
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di Hapus", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
             }
         }
     }//GEN-LAST:event_btn_hapus_ifActionPerformed
@@ -1075,14 +1075,14 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         btn_hapus_if.setEnabled(false);
         btn_keluar_if.setEnabled(true);
         btn_batal_if.setEnabled(false);
+        btn_tambah_if.setEnabled(true);
     }//GEN-LAST:event_btn_batal_ifActionPerformed
 
     private void txt_cari_ifKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cari_ifKeyReleased
         // TODO add your handling code here:
         tableModel.setRowCount(0);
-        String cari;
-        cari = txt_cari_if.getText();
-        String SQL = null;
+        String cari = txt_cari_if.getText();
+
         try {
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(
@@ -1090,7 +1090,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                     user,
                     pass);
             Statement stt = kon.createStatement();
-            SQL = "SELECT t_mahasiswa.nama,t_mata_kuliah.nama_mk,"
+            String SQL = "SELECT t_mahasiswa.nama,t_mata_kuliah.nama_mk,"
                     + "t_nilai.* FROM t_mahasiswa JOIN t_nilai USING (nim) JOIN "
                     + "t_mata_kuliah using (kd_mk) WHERE t_mahasiswa.nama LIKE "
                     + "'%" + cari + "%' OR t_mata_kuliah.nama_mk LIKE "

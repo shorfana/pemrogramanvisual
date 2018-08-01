@@ -56,12 +56,6 @@ public class frame_matkul_if extends javax.swing.JFrame {
             while (res.next()) {
                 data[0] = res.getString(1);
                 data[1] = res.getString(2);
-                String dateOri=res.getString(3);
-                String[] pecah=dateOri.split("-");
-                String tahun=pecah[0];
-                
-                data[2] = tahun;
-               System.out.print(tahun);
 
                 tableModel.addRow(data);
             }
@@ -95,14 +89,14 @@ public class frame_matkul_if extends javax.swing.JFrame {
     int row = -1;
 
     public void tampilfield() {
-        row = 0;
         row = tabel_matakuliah_if.getSelectedRow();
         txt_kodeMk_if.setText(tableModel.getValueAt(row, 0).toString());
         txt_namaMk_if.setText(tableModel.getValueAt(row, 1).toString());
         btn_simpan_if.setEnabled(false);
         btn_ubah_if.setEnabled(true);
         btn_hapus_if.setEnabled(true);
-        btn_batal_if.setEnabled(false);
+        btn_batal_if.setEnabled(true);
+        btn_tambah_if.setEnabled(false);
         aktif_teks();
     }
 
@@ -111,10 +105,10 @@ public class frame_matkul_if extends javax.swing.JFrame {
     private javax.swing.table.DefaultTableModel getDefaultTableModel() {
         return new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
-                new String[]{"Kode Mata Kuliah", "Nama Mata Kuliah", "tahun"}
+                new String[]{"Kode Mata Kuliah", "Nama Mata Kuliah"}
         ) {
             boolean[] canEdit = new boolean[]{
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -199,7 +193,7 @@ public class frame_matkul_if extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Masukan Mata Kuliah");
+        jLabel2.setText("Masukan Data");
 
         txt_cari_mk_if.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -427,6 +421,7 @@ public class frame_matkul_if extends javax.swing.JFrame {
         btn_hapus_if.setEnabled(false);
         btn_keluar_if.setEnabled(false);
         btn_batal_if.setEnabled(true);
+        btn_tambah_if.setEnabled(false);
         aktif_teks();
     }//GEN-LAST:event_btn_tambah_ifActionPerformed
 
@@ -439,6 +434,7 @@ public class frame_matkul_if extends javax.swing.JFrame {
         btn_hapus_if.setEnabled(false);
         btn_keluar_if.setEnabled(true);
         btn_batal_if.setEnabled(false);
+        btn_tambah_if.setEnabled(true);
     }//GEN-LAST:event_btn_batal_ifActionPerformed
 
     private void tabel_matakuliah_ifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel_matakuliah_ifMouseClicked
@@ -459,6 +455,9 @@ public class frame_matkul_if extends javax.swing.JFrame {
                     "Nama M.K tidak boleh kosong, silahkan dilengkapi");
             txt_namaMk_if.requestFocus();
         } else {
+            int pilihan = JOptionPane.showOptionDialog(this, "Data yakin sudah benar?",
+                    "simpan", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (pilihan == JOptionPane.YES_OPTION) {
             try {
                 Class.forName(driver);
                 Connection kon = DriverManager.getConnection(
@@ -481,7 +480,10 @@ public class frame_matkul_if extends javax.swing.JFrame {
                 membersihkan_teks();
                 btn_simpan_if.setEnabled(false);
                 btn_keluar_if.setEnabled(true);
+                btn_tambah_if.setEnabled(true);
                 nonaktifkan_teks();
+                
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di Simpan","Berhasil", JOptionPane.INFORMATION_MESSAGE);
 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null,
@@ -489,15 +491,13 @@ public class frame_matkul_if extends javax.swing.JFrame {
                         JOptionPane.INFORMATION_MESSAGE
                 );
             }
+           }
         }
     }//GEN-LAST:event_btn_simpan_ifActionPerformed
 
     private void btn_ubah_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubah_ifActionPerformed
         // TODO add your handling code here:
-        //validasi belum memilih row
-        if (row == -1) {
-            JOptionPane.showMessageDialog(null, "Belum Memilih Row !!!", "WARNING", JOptionPane.WARNING_MESSAGE);
-        } else {
+
             String kodeMk = txt_kodeMk_if.getText();
             String namaMk = txt_namaMk_if.getText();
             if (txt_kodeMk_if.getText().isEmpty()) {
@@ -507,6 +507,9 @@ public class frame_matkul_if extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,
                         "Nama M.K tidak boleh kosong, silahkan dilengkapi");
             } else {
+                int pilihan = JOptionPane.showOptionDialog(this, "Yakin ingin diubah?",
+                    "Ubah", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (pilihan == JOptionPane.YES_OPTION) {
                 try {
                     Class.forName(driver);
                     Connection kon = DriverManager.getConnection(
@@ -519,6 +522,8 @@ public class frame_matkul_if extends javax.swing.JFrame {
                             + tableModel.getValueAt(row, 0).toString() + "';";
 
                     stt.executeUpdate(SQL);
+                    
+                    
 
                     tableModel.setRowCount(0);
                     settableload();
@@ -528,9 +533,12 @@ public class frame_matkul_if extends javax.swing.JFrame {
                     btn_simpan_if.setEnabled(false);
                     btn_ubah_if.setEnabled(false);
                     btn_hapus_if.setEnabled(false);
+                    btn_tambah_if.setEnabled(true);
                     nonaktifkan_teks();
-                    // set unselected row
-                    row = -1;
+                    
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Di Ubah","Berhasil", JOptionPane.INFORMATION_MESSAGE);
+
+
 
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null,
@@ -544,11 +552,11 @@ public class frame_matkul_if extends javax.swing.JFrame {
 
     private void btn_hapus_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapus_ifActionPerformed
         // TODO add your handling code here:
-        //validasi belum meilih row
-        if (row == -1) {
-            JOptionPane.showMessageDialog(null, "Belum Memilih Row !!!", "WARNING", JOptionPane.WARNING_MESSAGE);
-        } else {
-            try {
+
+        int pilihan = JOptionPane.showOptionDialog(this, "Yakin ingin dihapus?",
+                    "Hapus", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (pilihan == JOptionPane.YES_OPTION) {
+         try {
                 Class.forName(driver);
                 Connection kon = DriverManager.getConnection(
                         database,
@@ -559,6 +567,9 @@ public class frame_matkul_if extends javax.swing.JFrame {
                         + tableModel.getValueAt(row, 0).toString() + "'";
 
                 stt.executeUpdate(SQL);
+                
+                
+                
                 tableModel.removeRow(row);
                 stt.close();
                 kon.close();
@@ -566,21 +577,23 @@ public class frame_matkul_if extends javax.swing.JFrame {
                 btn_simpan_if.setEnabled(false);
                 btn_ubah_if.setEnabled(false);
                 btn_hapus_if.setEnabled(false);
+                btn_tambah_if.setEnabled(true);
                 nonaktifkan_teks();
-                // set unselected row
-                row = -1;
+
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di Hapus","Berhasil", JOptionPane.INFORMATION_MESSAGE);
+                
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
             }
-        }
+         }
+    
     }//GEN-LAST:event_btn_hapus_ifActionPerformed
 
     private void txt_cari_mk_ifKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cari_mk_ifKeyReleased
         // TODO add your handling code here:
         tableModel.setRowCount(0);
-        String cari;
-        cari = txt_cari_mk_if.getText();
-        String SQL = null;
+        String cari = txt_cari_mk_if.getText();
+
         try {
             Class.forName(driver);
             Connection kon = DriverManager.getConnection(
@@ -588,7 +601,7 @@ public class frame_matkul_if extends javax.swing.JFrame {
                     user,
                     pass);
             Statement stt = kon.createStatement();
-            SQL = "SELECT * FROM t_mata_kuliah WHERE kd_mk"
+            String SQL = "SELECT * FROM t_mata_kuliah WHERE kd_mk"
                     + " LIKE '%" + cari + "%' OR "
                     + "nama_mk LIKE '%" + cari + "%'";
 
