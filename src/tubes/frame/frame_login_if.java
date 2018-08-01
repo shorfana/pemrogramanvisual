@@ -101,7 +101,6 @@ public class frame_login_if extends javax.swing.JFrame {
 
         txt_username_if.setBackground(new java.awt.Color(102, 102, 102));
         txt_username_if.setForeground(new java.awt.Color(255, 255, 255));
-        txt_username_if.setText("fdsfafads");
         txt_username_if.setBorder(null);
         jPanel3.add(txt_username_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 129, 20));
 
