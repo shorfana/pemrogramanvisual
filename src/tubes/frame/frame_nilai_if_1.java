@@ -105,7 +105,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                 Object[] ob = new Object[5];
                 ob[0] = res.getString(1);
 
-                cmb_namaMhs.addItem((String) ob[0]);
+                cmb_namaMhs_if.addItem((String) ob[0]);
             }
             res.close();
             stt.close();
@@ -129,7 +129,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                 Object[] ob = new Object[1];
                 ob[0] = res.getString(1);
 
-                cmb_NamaMk.addItem((String) ob[0]);
+                cmb_NamaMk_if.addItem((String) ob[0]);
             }
             res.close();
             stt.close();
@@ -143,7 +143,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     }
 
     public void tampil_Mahasiswa() {
-        if (cmb_namaMhs.getSelectedIndex() == 0) {
+        if (cmb_namaMhs_if.getSelectedIndex() == 0) {
             txt_nim_if.setText("");
         } else {
             String stat = "";
@@ -151,7 +151,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                 Class.forName(driver);
                 Connection kon = DriverManager.getConnection(database, user, pass);
                 Statement stt = kon.createStatement();
-                String SQL = "Select nim from t_mahasiswa where nama='" + cmb_namaMhs.getSelectedItem() + "'";
+                String SQL = "Select nim from t_mahasiswa where nama='" + cmb_namaMhs_if.getSelectedItem() + "'";
                 ResultSet res = stt.executeQuery(SQL);
                 while (res.next()) {
                     Object[] ob = new Object[1];
@@ -172,7 +172,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     }
 
     public void tampil_Mk() {
-        if (cmb_NamaMk.getSelectedIndex() == 0) {
+        if (cmb_NamaMk_if.getSelectedIndex() == 0) {
             txt_kodeMk_if.setText("");
         } else {
             String stat = "";
@@ -181,7 +181,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                 Connection kon = DriverManager.getConnection(database, user, pass);
                 Statement stt = kon.createStatement();
                 String SQL = "Select kd_mk from t_mata_kuliah "
-                        + "where nama_mk='" + cmb_NamaMk.getSelectedItem() + "'";
+                        + "where nama_mk='" + cmb_NamaMk_if.getSelectedItem() + "'";
                 ResultSet res = stt.executeQuery(SQL);
                 while (res.next()) {
                     Object[] ob = new Object[1];
@@ -222,8 +222,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     }
 
     public void membersihkan_teks() {
-        cmb_NamaMk.setSelectedIndex(0);
-        cmb_namaMhs.setSelectedIndex(0);
+        cmb_NamaMk_if.setSelectedIndex(0);
+        cmb_namaMhs_if.setSelectedIndex(0);
         txt_nim_if.setText("");
         txt_kodeMk_if.setText("");
         txt_kehadiran_if.setText("");
@@ -261,8 +261,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
 
     public void tampil_field() {
         row = tabel_nilai_if.getSelectedRow();
-        cmb_namaMhs.getModel().setSelectedItem(tableModel.getValueAt(row, 1));
-        cmb_NamaMk.getModel().setSelectedItem(tableModel.getValueAt(row, 2));
+        cmb_namaMhs_if.getModel().setSelectedItem(tableModel.getValueAt(row, 1));
+        cmb_NamaMk_if.getModel().setSelectedItem(tableModel.getValueAt(row, 2));
         txt_kehadiran_if.setText(tableModel.getValueAt(row, 3).toString());
         txt_tgs1_if.setText(tableModel.getValueAt(row, 4).toString());
         txt_tgs2_if.setText(tableModel.getValueAt(row, 5).toString());
@@ -347,8 +347,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         btn_simpan_if = new javax.swing.JButton();
         btn_batal_if = new javax.swing.JButton();
         btn_keluar_if = new javax.swing.JButton();
-        cmb_namaMhs = new javax.swing.JComboBox<>();
-        cmb_NamaMk = new javax.swing.JComboBox<>();
+        cmb_namaMhs_if = new javax.swing.JComboBox<>();
+        cmb_NamaMk_if = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txt_tgs1_if = new javax.swing.JTextField();
@@ -521,17 +521,17 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
             }
         });
 
-        cmb_namaMhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Pilih Nama-" }));
-        cmb_namaMhs.addActionListener(new java.awt.event.ActionListener() {
+        cmb_namaMhs_if.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Pilih Nama-" }));
+        cmb_namaMhs_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmb_namaMhsActionPerformed(evt);
+                cmb_namaMhs_ifActionPerformed(evt);
             }
         });
 
-        cmb_NamaMk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Pilih Mata Kuliah-" }));
-        cmb_NamaMk.addActionListener(new java.awt.event.ActionListener() {
+        cmb_NamaMk_if.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Pilih Mata Kuliah-" }));
+        cmb_NamaMk_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmb_NamaMkActionPerformed(evt);
+                cmb_NamaMk_ifActionPerformed(evt);
             }
         });
 
@@ -582,7 +582,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addGap(38, 38, 38)
                                 .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmb_namaMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmb_namaMhs_if, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_nim_if)))
                             .addGroup(panelIsi2Layout.createSequentialGroup()
                                 .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -616,7 +616,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                             .addComponent(txt_uas_if, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_uts_if, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_kodeMk_if, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmb_NamaMk, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb_NamaMk_if, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_angkatan_if, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -642,7 +642,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                     .addGroup(panelIsi2Layout.createSequentialGroup()
                         .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(cmb_namaMhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmb_namaMhs_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -667,7 +667,7 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
                     .addGroup(panelIsi2Layout.createSequentialGroup()
                         .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(cmb_NamaMk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmb_NamaMk_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
@@ -776,15 +776,15 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmb_namaMhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_namaMhsActionPerformed
+    private void cmb_namaMhs_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_namaMhs_ifActionPerformed
         // TODO add your handling code here:
         tampil_Mahasiswa();
-    }//GEN-LAST:event_cmb_namaMhsActionPerformed
+    }//GEN-LAST:event_cmb_namaMhs_ifActionPerformed
 
-    private void cmb_NamaMkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_NamaMkActionPerformed
+    private void cmb_NamaMk_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_NamaMk_ifActionPerformed
         // TODO add your handling code here:
         tampil_Mk();
-    }//GEN-LAST:event_cmb_NamaMkActionPerformed
+    }//GEN-LAST:event_cmb_NamaMk_ifActionPerformed
 
     private void tabel_nilai_ifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel_nilai_ifMouseClicked
         // TODO add your handling code here:
@@ -1182,8 +1182,8 @@ public class frame_nilai_if_1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_simpan_if;
     private javax.swing.JButton btn_tambah_if;
     private javax.swing.JButton btn_ubah_if;
-    private javax.swing.JComboBox<String> cmb_NamaMk;
-    private javax.swing.JComboBox<String> cmb_namaMhs;
+    private javax.swing.JComboBox<String> cmb_NamaMk_if;
+    private javax.swing.JComboBox<String> cmb_namaMhs_if;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -43,7 +43,7 @@ public class frame_matkul_if extends javax.swing.JFrame {
 
         settableload();
     }
-    String data[] = new String[3];
+    String data[] = new String[2];
 
     private void settableload() {
         String stat = "";

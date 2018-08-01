@@ -220,7 +220,7 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="cmb_namaMhs" min="-2" pref="188" max="-2" attributes="0"/>
+                                              <Component id="cmb_namaMhs_if" min="-2" pref="188" max="-2" attributes="0"/>
                                               <Component id="txt_nim_if" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -264,7 +264,7 @@
                                       <Component id="txt_uas_if" min="-2" pref="44" max="-2" attributes="0"/>
                                       <Component id="txt_uts_if" min="-2" pref="44" max="-2" attributes="0"/>
                                       <Component id="txt_kodeMk_if" min="-2" pref="115" max="-2" attributes="0"/>
-                                      <Component id="cmb_NamaMk" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="cmb_NamaMk_if" min="-2" pref="203" max="-2" attributes="0"/>
                                       <Component id="txt_angkatan_if" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -296,7 +296,7 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmb_namaMhs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmb_namaMhs_if" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -328,7 +328,7 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmb_NamaMk" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmb_NamaMk_if" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -525,7 +525,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_keluar_ifActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cmb_namaMhs">
+                <Component class="javax.swing.JComboBox" name="cmb_namaMhs_if">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
@@ -534,13 +534,13 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_namaMhsActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_namaMhs_ifActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cmb_NamaMk">
+                <Component class="javax.swing.JComboBox" name="cmb_NamaMk_if">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
@@ -549,7 +549,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_NamaMkActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_NamaMk_ifActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

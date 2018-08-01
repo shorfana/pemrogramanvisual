@@ -105,7 +105,7 @@ public class frame_utama_if extends javax.swing.JFrame {
         jLabel6.setText("10116493");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText("10116493");
+        jLabel8.setText("10116465");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Muhammad Iqbal Shorfana");

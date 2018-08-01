@@ -38,16 +38,33 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
         database = dbsetting.SettingPanel("DBDatabase");
         user = dbsetting.SettingPanel("DBUsername");
         pass = dbsetting.SettingPanel("DBPassword");
-        tabel_mahasiswa_if.setModel(tableModel);
 
+        tabel_mahasiswa_if.setModel(tableModel);
         nonaktif_teks();
         btn_simpan_if.setEnabled(false);
         btn_batal_if.setEnabled(false);
         btn_ubah_if.setEnabled(false);
         btn_hapus_if.setEnabled(false);
-
         settableload();
     }
+
+    private javax.swing.table.DefaultTableModel tableModel = getDefaultTableModel();
+
+    private javax.swing.table.DefaultTableModel getDefaultTableModel() {
+        return new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{"NIM", "Nama Mahasiswa", "Tempat Lahir", "Tanggal Lahir", "Alamat"}
+        ) {
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        };
+    }
+
     String data[] = new String[5];
 
     private void settableload() {
@@ -79,23 +96,6 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
         }
     }
 
-    private javax.swing.table.DefaultTableModel tableModel = getDefaultTableModel();
-
-    private javax.swing.table.DefaultTableModel getDefaultTableModel() {
-        return new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{"NIM", "Nama Mahasiswa", "Tempat Lahir", "Tanggal Lahir", "Alamat"}
-        ) {
-            boolean[] canEdit = new boolean[]{
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
-            }
-        };
-    }
-
     public void membersihkan_teks() {
         txt_nim_if.setText("");
         txt_nama_if.setText("");
@@ -104,7 +104,7 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
         txt_alamat_if.setText("");
     }
 
-    int row = -1;
+    
 
     public void nonaktif_teks() {
         txt_nim_if.setEnabled(false);
@@ -251,6 +251,12 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("NIM");
+
+        txt_nim_if.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nim_ifKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -495,7 +501,9 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Kolom Alamat harus diisi");
             txt_alamat_if.requestFocus();
         } else {
-            try {
+            if (JOptionPane.showConfirmDialog(null, "Apakah data sudah benar?", "Peringatan!!!",
+                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                  try {
                 Class.forName(driver);
                 Connection kon = DriverManager.getConnection(
                         database,
@@ -519,16 +527,20 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
                 btn_simpan_if.setEnabled(false);
                 btn_keluar_if.setEnabled(true);
                 nonaktif_teks();
+                JOptionPane.showMessageDialog(this, "Data Berhasil Ditambah");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null,
                         e.getMessage(), "Error",
                         JOptionPane.INFORMATION_MESSAGE
                 );
             }
+         } else {
+            this.setVisible(true);
+            }
         }
     }//GEN-LAST:event_btn_simpan_ifActionPerformed
 //setText(tableModel.getValueAt(row, 3).toString());
-
+    int row = -1;
     public void tampil_field() {
         row = 0;
         row = tabel_mahasiswa_if.getSelectedRow();
@@ -547,7 +559,7 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
         btn_simpan_if.setEnabled(false);
         btn_ubah_if.setEnabled(true);
         btn_hapus_if.setEnabled(true);
-        btn_batal_if.setEnabled(false);
+        btn_batal_if.setEnabled(true);
         aktif_teks();
     }
 
@@ -591,6 +603,7 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
                     btn_ubah_if.setEnabled(false);
                     btn_hapus_if.setEnabled(false);
                     nonaktif_teks();
+                    JOptionPane.showMessageDialog(this, "Data Berhasil Diubah");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -627,7 +640,7 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
                 btn_ubah_if.setEnabled(false);
                 btn_hapus_if.setEnabled(false);
                 nonaktif_teks();
-
+                JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus");
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
@@ -635,14 +648,18 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_hapus_ifActionPerformed
 
     private void btn_keluar_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_keluar_ifActionPerformed
-        // TODO add your handling code here:
-        frame_utama_if frm_utama = new frame_utama_if();
-        frm_utama.setVisible(true);
-        this.setVisible(false);
+        if (JOptionPane.showConfirmDialog(null, "Yakin Mau Ke menu utama?", "Peringatan!!!",
+                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            frame_utama_if frm_utama = new frame_utama_if();
+            frm_utama.setVisible(true);
+            this.setVisible(false);
+        }else{
+            
+        }
+        
     }//GEN-LAST:event_btn_keluar_ifActionPerformed
 
     private void btn_batal_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batal_ifActionPerformed
-        // TODO add your handling code here:
         membersihkan_teks();
         nonaktif_teks();
         btn_simpan_if.setEnabled(false);
@@ -692,6 +709,14 @@ public class frame_mahasiswa_if extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_txt_cari_nim_ifKeyReleased
+
+    private void txt_nim_ifKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nim_ifKeyTyped
+        // TODO add your handling code here:
+        char enter = evt.getKeyChar();
+        if (!(Character.isDigit(enter))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_nim_ifKeyTyped
 
     /**
      * @param args the command line arguments

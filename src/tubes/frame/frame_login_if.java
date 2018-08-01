@@ -148,13 +148,11 @@ public class frame_login_if extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_login_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ifActionPerformed
-        // TODO add your handling code here:
         try {
             Connection kon = DriverManager.getConnection(database, user, pass);
             Statement stt = kon.createStatement();
             String SQL = "SELECT * FROM pengguna WHERE username='"+txt_username_if.getText()+"' AND password='"+txt_password_if.getText()+"'";
-//            String SQL = "SELECT * FROM login where='"+txt_username_if.getText()+"'"
-//                    + "AND password='"+txt_password_if.getText()+"'";
+
             ResultSet res = stt.executeQuery(SQL);
             if(res.next()){
                 if(txt_username_if.getText().equals(res.getString("username")) && txt_password_if.getText().equals(res.getString("password"))){
@@ -164,10 +162,13 @@ public class frame_login_if extends javax.swing.JFrame {
                     this.setVisible(false);
                 }
             }else{
-                JOptionPane.showMessageDialog(null, "username atau password salah");
                 percobaan += 1;
-                if (percobaan == 3){
-                    JOptionPane.showMessageDialog(this, "ANDA GAGAL LOGIN SEBANYAK 3 KALIII");
+                if (percobaan == 1){
+                    JOptionPane.showMessageDialog(this, "Username atau password salah \nKesempatan anda login 2 kali lagi");
+                }else if(percobaan ==2){
+                    JOptionPane.showMessageDialog(this, "Username atau password salah \nKesempatan anda login 1 kali lagi");
+                }else {
+                    JOptionPane.showMessageDialog(this, "Username atau password salah \nKesempatan anda sudah abis, sistem akan keluar");
                     System.exit(0);
                 }
             }

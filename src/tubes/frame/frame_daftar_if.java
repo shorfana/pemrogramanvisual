@@ -154,6 +154,7 @@ public class frame_daftar_if extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbl_punya_akun_ifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_punya_akun_ifMouseClicked

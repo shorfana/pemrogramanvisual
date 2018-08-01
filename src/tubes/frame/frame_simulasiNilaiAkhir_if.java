@@ -32,7 +32,11 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         tabel_mahasiswa_if.setModel(tableModel);
         tampilComboif();
         
-
+        nonaktifkan_teks();
+        btn_simpan_if.setEnabled(false);
+        btn_batal_if.setEnabled(false);
+        btn_ubah_if.setEnabled(false);
+        btn_hapus_if.setEnabled(false);
     }
     
     public void tampilkodemkif(){
@@ -69,7 +73,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         } 
     }
     
-    int row = 0;
+    
     
     public void membersihkan_teks(){
         txt_kodeMk_if.setText("");
@@ -112,7 +116,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         txt_uts_if.setEnabled(true);
         txt_uas_if.setEnabled(true);
     }
-    
+    int row = 0;
     public void tampil_field(){
         row = tabel_mahasiswa_if.getSelectedRow();
         txt_kodeMk_if.setText(tableModel.getValueAt(row, 0).toString());
@@ -129,6 +133,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         txt_uas_if.setText(tableModel.getValueAt(row, 11).toString());
         
         btn_ubah_if.setEnabled(true);
+        btn_hapus_if.setEnabled(true);
         
     }
     
@@ -224,10 +229,10 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         panelJudul.setLayout(panelJudulLayout);
         panelJudulLayout.setHorizontalGroup(
             panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelJudulLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelJudulLayout.createSequentialGroup()
+                .addContainerGap(291, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGap(216, 216, 216))
         );
         panelJudulLayout.setVerticalGroup(
             panelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,24 +242,31 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 490, 60));
+        jPanel1.add(panelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 790, 60));
 
         panelIsi.setBackground(new java.awt.Color(255, 255, 255));
+        panelIsi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelIsi2.setBackground(new java.awt.Color(102, 102, 102));
         panelIsi2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelIsi2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Kode M.K");
+        panelIsi2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 41, -1, -1));
+        panelIsi2.add(txt_kodeMk_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 39, 132, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Presentase Absen");
+        panelIsi2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 72, -1, -1));
+        panelIsi2.add(txt_prsAbsen_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 70, 44, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nama Mata Kuliah");
+        panelIsi2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 15, -1, -1));
 
         tabel_mahasiswa_if.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -274,6 +286,8 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabel_mahasiswa_if);
 
+        panelIsi2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 1263, 138));
+
         btn_tambah_if.setBackground(new java.awt.Color(0, 0, 0));
         btn_tambah_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_tambah_if.setText("Tambah");
@@ -282,6 +296,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                 btn_tambah_ifActionPerformed(evt);
             }
         });
+        panelIsi2.add(btn_tambah_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 392, -1, -1));
 
         btn_ubah_if.setBackground(new java.awt.Color(0, 0, 0));
         btn_ubah_if.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,6 +306,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                 btn_ubah_ifActionPerformed(evt);
             }
         });
+        panelIsi2.add(btn_ubah_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 392, -1, -1));
 
         btn_hapus_if.setBackground(new java.awt.Color(0, 0, 0));
         btn_hapus_if.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,6 +316,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                 btn_hapus_ifActionPerformed(evt);
             }
         });
+        panelIsi2.add(btn_hapus_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 392, -1, -1));
 
         btn_simpan_if.setBackground(new java.awt.Color(0, 0, 0));
         btn_simpan_if.setForeground(new java.awt.Color(255, 255, 255));
@@ -309,245 +326,118 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                 btn_simpan_ifActionPerformed(evt);
             }
         });
+        panelIsi2.add(btn_simpan_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 392, -1, -1));
 
         btn_batal_if.setBackground(new java.awt.Color(0, 0, 0));
         btn_batal_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_batal_if.setText("Batal");
+        panelIsi2.add(btn_batal_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 392, -1, -1));
 
         btn_keluar_if.setBackground(new java.awt.Color(0, 0, 0));
         btn_keluar_if.setForeground(new java.awt.Color(255, 255, 255));
         btn_keluar_if.setText("Keluar");
+        btn_keluar_if.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_keluar_ifActionPerformed(evt);
+            }
+        });
+        panelIsi2.add(btn_keluar_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(977, 392, -1, -1));
 
         cmb_mata_kuliah_if.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_mata_kuliah_ifActionPerformed(evt);
             }
         });
+        panelIsi2.add(cmb_mata_kuliah_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 13, 132, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("%");
+        panelIsi2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 72, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Presentase Tugas");
+        panelIsi2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 110, -1, -1));
+        panelIsi2.add(txt_prsTugas_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 108, 44, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Presentase UTS");
+        panelIsi2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 152, -1, -1));
+        panelIsi2.add(txt_prsUTS_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 150, 44, -1));
+        panelIsi2.add(txt_prsUAS_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 196, 44, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Presentase UAS");
+        panelIsi2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 198, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Kehadiran");
+        panelIsi2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 21, -1, -1));
+        panelIsi2.add(txt_kehadiran_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 19, 44, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Tugas 1");
+        panelIsi2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 52, -1, -1));
+        panelIsi2.add(txt_tgs1_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 50, 44, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Tugas 2");
+        panelIsi2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 90, -1, -1));
+
+        txt_tgs2_if.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_tgs2_ifActionPerformed(evt);
+            }
+        });
+        panelIsi2.add(txt_tgs2_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 88, 44, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Tugas 3");
+        panelIsi2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 122, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("%");
+        panelIsi2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 110, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("%");
+        panelIsi2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 152, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("%");
+        panelIsi2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 198, 22, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("UTS");
+        panelIsi2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 160, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("UAS");
+        panelIsi2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 196, -1, -1));
+        panelIsi2.add(txt_tgs3_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 120, 44, -1));
+        panelIsi2.add(txt_uts_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 158, 44, -1));
+        panelIsi2.add(txt_uas_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 196, 44, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Pertemuan");
+        panelIsi2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, -1, -1));
 
-        javax.swing.GroupLayout panelIsi2Layout = new javax.swing.GroupLayout(panelIsi2);
-        panelIsi2.setLayout(panelIsi2Layout);
-        panelIsi2Layout.setHorizontalGroup(
-            panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIsi2Layout.createSequentialGroup()
-                .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelIsi2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelIsi2Layout.createSequentialGroup()
-                                .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelIsi2Layout.createSequentialGroup()
-                                        .addComponent(txt_prsUTS_if, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel18))
-                                    .addGroup(panelIsi2Layout.createSequentialGroup()
-                                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelIsi2Layout.createSequentialGroup()
-                                                .addComponent(txt_prsAbsen_if, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel8))
-                                            .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(cmb_mata_kuliah_if, 0, 132, Short.MAX_VALUE)
-                                                .addComponent(txt_kodeMk_if))
-                                            .addGroup(panelIsi2Layout.createSequentialGroup()
-                                                .addComponent(txt_prsTugas_if, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel9))
-                                            .addGroup(panelIsi2Layout.createSequentialGroup()
-                                                .addComponent(txt_prsUAS_if, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel19)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel14)
-                                            .addComponent(jLabel15)
-                                            .addComponent(jLabel16)
-                                            .addComponent(jLabel20)
-                                            .addComponent(jLabel21))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txt_uas_if, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                            .addComponent(txt_uts_if, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                            .addComponent(txt_tgs2_if, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                            .addComponent(txt_tgs1_if, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                            .addComponent(txt_tgs3_if, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                                            .addComponent(txt_kehadiran_if))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel17)
-                                        .addGap(45, 45, 45))))
-                            .addGroup(panelIsi2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 562, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsi2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2))
-                    .addGroup(panelIsi2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_tambah_if)
-                        .addGap(46, 46, 46)
-                        .addComponent(btn_ubah_if)
-                        .addGap(59, 59, 59)
-                        .addComponent(btn_hapus_if)
-                        .addGap(93, 93, 93)
-                        .addComponent(btn_simpan_if)
-                        .addGap(67, 67, 67)
-                        .addComponent(btn_batal_if)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_keluar_if)))
-                .addContainerGap())
-        );
-        panelIsi2Layout.setVerticalGroup(
-            panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIsi2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cmb_mata_kuliah_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelIsi2Layout.createSequentialGroup()
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(txt_kodeMk_if, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txt_prsAbsen_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(txt_prsTugas_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(txt_prsUTS_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_prsUAS_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel12)))
-                    .addGroup(panelIsi2Layout.createSequentialGroup()
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(txt_kehadiran_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(txt_tgs1_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(txt_tgs2_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(txt_tgs3_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(txt_uts_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(6, 6, 6)
-                .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21)
-                    .addComponent(txt_uas_if, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 35, Short.MAX_VALUE)
-                .addGroup(panelIsi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_tambah_if)
-                    .addComponent(btn_ubah_if)
-                    .addComponent(btn_hapus_if)
-                    .addComponent(btn_simpan_if)
-                    .addComponent(btn_batal_if)
-                    .addComponent(btn_keluar_if))
-                .addGap(22, 22, 22))
-        );
+        panelIsi.add(panelIsi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1290, 450));
 
-        javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
-        panelIsi.setLayout(panelIsiLayout);
-        panelIsiLayout.setHorizontalGroup(
-            panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIsiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelIsi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelIsiLayout.setVerticalGroup(
-            panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(panelIsi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
-        );
-
-        jPanel1.add(panelIsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 730, 540));
+        jPanel1.add(panelIsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -557,7 +447,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -658,9 +548,9 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Kolom Nilai UAS Harus diisi");
             txt_uas_if.requestFocus();
         }else {
-         
-                
-                data[0] = txt_kodeMk_if.getText();
+         if (JOptionPane.showConfirmDialog(null, "Apakah Data Sudah Benar?", "Peringatan!!!",
+                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+             data[0] = txt_kodeMk_if.getText();
                 data[1] = (String) cmb_mata_kuliah_if.getSelectedItem();
                 data[2] = txt_prsAbsen_if.getText();
                 data[3] = txt_prsTugas_if.getText();
@@ -679,9 +569,12 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
                 data[16] = Double.toString(nilaiAkhir);
                 data[17] = index;
                 data[18] = keterangan;
-            
+                JOptionPane.showMessageDialog(this, "Data Berhasil Ditambah ketabel");
             tableModel.insertRow(0, data);
-                
+            
+        }else{
+             
+         }
         }
     }//GEN-LAST:event_btn_simpan_ifActionPerformed
 
@@ -694,13 +587,12 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
 
     private void btn_ubah_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubah_ifActionPerformed
         // TODO add your handling code here:
-        
         String data[] = new String[19];
-        //mendeklarasi rumus-rumus yang telah ditentukan 
-        double pabsen = Double.valueOf(txt_prsAbsen_if.getText()) / 100;
-        double hadir2 = Double.valueOf(txt_kehadiran_if.getText());
-        double hadir = Double.valueOf(txt_kehadiran_if.getText()) / 14;
-        double nilaiAbsen = hadir * 100 * pabsen;
+        
+        double pabsen_if = Double.valueOf(txt_prsAbsen_if.getText()) / 100;
+        double hadir2_if = Double.valueOf(txt_kehadiran_if.getText());
+        double hadir_if = Double.valueOf(txt_kehadiran_if.getText()) / 14;
+        double nilaiAbsen = hadir_if * 100 * pabsen_if;
         double ptugas = Double.valueOf(txt_prsTugas_if.getText()) / 100;
         double tgs1 = Double.valueOf(txt_tgs1_if.getText());
         double tgs2 = Double.valueOf(txt_tgs2_if.getText());
@@ -724,9 +616,9 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
             index="E";
         }
         String keterangan = "";
-        if(hadir2 <= 11){
+        if(hadir2_if <= 11){
             keterangan="Tidak Lulus";
-        }else if((index == "A" || index == "B" || index == "C") && hadir2 >= 11){
+        }else if((index == "A" || index == "B" || index == "C") && hadir2_if >= 11){
             keterangan="LULUS";
         }else if((index == "D" || index == "E")){
             keterangan="Tidak Lulus";
@@ -750,7 +642,7 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         }else if(txt_kehadiran_if.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Kolom Kehadiran Harus diisi");
             txt_kehadiran_if.requestFocus();
-        }else if(hadir2 > 14){
+        }else if(hadir2_if > 14){
             JOptionPane.showMessageDialog(null, "Kolom Kehadiran Tidak Boleh Lebih Dari 14");
             txt_kehadiran_if.requestFocus();
             
@@ -769,8 +661,10 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
         }else if(txt_uas_if.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Kolom Nilai UAS Harus diisi");
             txt_uas_if.requestFocus();
-        }else{
-            data[0] = txt_kodeMk_if.getText();
+        }else {
+            if (JOptionPane.showConfirmDialog(null, "Yakin Data Mau Diubah?", "Peringatan!!!",
+                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                data[0] = txt_kodeMk_if.getText();
             data[1] = (String) cmb_mata_kuliah_if.getSelectedItem();
             data[2] = txt_prsAbsen_if.getText();
             data[3] = txt_prsTugas_if.getText();
@@ -789,30 +683,52 @@ public class frame_simulasiNilaiAkhir_if extends javax.swing.JFrame {
             data[16] = Double.toString(nilaiAkhir);
             data[17] = index;
             data[18] = keterangan;
-            
+            JOptionPane.showMessageDialog(this, "Data Berhasil Diubah ke tabel");
             tableModel.removeRow(0);
             tableModel.insertRow(0, data);
             membersihkan_teks();
             btn_simpan_if.setEnabled(false);
             btn_ubah_if.setEnabled(false);
             btn_simpan_if.setEnabled(false);
-            
+                
+            } else {
+                
+            }
         }
-        
     }//GEN-LAST:event_btn_ubah_ifActionPerformed
 
     private void btn_hapus_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapus_ifActionPerformed
-        // TODO add your handling code here:
-        // untuk menghapus data tabel  
-        try {
+        if (JOptionPane.showConfirmDialog(null, "Yakin Data Mau DIhapus?", "Peringatan!!!",
+                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            try {
             
             tableModel.removeRow(row);
             membersihkan_teks();
+            JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus");
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
+        }else{
+            
+        }
+        
         
     }//GEN-LAST:event_btn_hapus_ifActionPerformed
+
+    private void btn_keluar_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_keluar_ifActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Yakin Data Mau ke menu utama?", "Peringatan!!!",
+                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            frame_utama_if frm_login = new frame_utama_if();
+        frm_login.setVisible(true);
+        this.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_btn_keluar_ifActionPerformed
+
+    private void txt_tgs2_ifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tgs2_ifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_tgs2_ifActionPerformed
 
     /**
      * @param args the command line arguments
