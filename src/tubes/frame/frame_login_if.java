@@ -93,19 +93,22 @@ public class frame_login_if extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USERNAME");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, 40));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 20));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PASSWORD");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, 40));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, 20));
 
         txt_username_if.setBackground(new java.awt.Color(102, 102, 102));
+        txt_username_if.setForeground(new java.awt.Color(255, 255, 255));
+        txt_username_if.setText("fdsfafads");
         txt_username_if.setBorder(null);
-        jPanel3.add(txt_username_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 129, -1));
+        jPanel3.add(txt_username_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 129, 20));
 
         txt_password_if.setBackground(new java.awt.Color(102, 102, 102));
+        txt_password_if.setForeground(new java.awt.Color(255, 255, 255));
         txt_password_if.setBorder(null);
-        jPanel3.add(txt_password_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 129, -1));
+        jPanel3.add(txt_password_if, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 129, 20));
 
         btn_login_if.setText("LOGIN");
         btn_login_if.addActionListener(new java.awt.event.ActionListener() {
